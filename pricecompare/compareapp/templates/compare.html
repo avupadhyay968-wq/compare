@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Product Prices</title>
+</head>
+<body>
+    <h1>Search for a Product</h1>
+    <form action="{% url 'compare_prices' %}" method="get">
+        <input type="text" name="query" placeholder="Enter product name..." required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

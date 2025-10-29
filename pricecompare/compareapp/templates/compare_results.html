@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price Comparison Results</title>
+</head>
+<body>
+    <h1>Price Comparison Results for "{{ query }}"</h1>
+
+    {% if google_products %}
+        <h2>Google Shopping Results</h2>
+        {% for p in google_products %}
+            <div>
+                <img src="{{ p.thumbnail }}" width="100">
+                <h3>{{ p.title }}</h3>
+                <p>{{ p.price }}</p>
+                <a href="{{ p.link }}" target="_blank">View Product</a>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No Google products found.</p>
+    {% endif %}
+
+    {% if ebay_products %}
+        <h2>eBay Results</h2>
+        {% for p in ebay_products %}
+            <div>
+                <img src="{{ p.thumbnail }}" width="100">
+                <h3>{{ p.title }}</h3>
+                <p>{{ p.price }}</p>
+                <a href="{{ p.link }}" target="_blank">View Product</a>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No eBay products found.</p>
+    {% endif %}
+
+    {% if amazon_products %}
+        <h2>Amazon Results</h2>
+        {% for p in amazon_products %}
+            <div>
+                <img src="{{ p.thumbnail }}" width="100">
+                <h3>{{ p.title }}</h3>
+                <p>{{ p.price }}</p>
+                <a href="{{ p.link }}" target="_blank">View Product</a>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No Amazon products found.</p>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'search_page' %}">🔙 New Search</a>
+</body>
+</html>
